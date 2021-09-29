@@ -20,6 +20,19 @@ class CartTests {
 	}
 
 	@Test
+	void deleteAProductFromCart() {
+		var cart = new Cart();
+
+		assertTrue(cart.IsEmpty());
+		assertTrue(cart.deletedProductsIsEmpty());
+
+		Product ipad1 = new Product("Ipad Pro", 1);
+		cart.add(ipad1);
+		cart.removeByName("Ipad Pro");
+		assertFalse(cart.deletedProductsIsEmpty());
+	}
+
+	@Test
 	void addTwoQuantitiesToCart() {
 		var cart = new Cart();
 

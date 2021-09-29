@@ -18,6 +18,8 @@ public class DemoApplication {
 		cart.add(heroInkPen);
 		cart.add(ReebokCricketbat);
 		cart.add(ReebokCricketbat);
+
+		cart.removeByName("Ipad Pro");
 	}
 
 }
