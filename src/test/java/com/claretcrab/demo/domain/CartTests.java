@@ -33,6 +33,19 @@ class CartTests {
 	}
 
 	@Test
+	void twoCartsShouldNotBeEquals() {
+		var cart1 = new Cart();
+		var cart2 = new Cart();
+
+		Product ipad1 = new Product("Ipad Pro", 1);
+
+		cart1.add(ipad1);
+		cart2.add(ipad1);
+
+		assertFalse(cart1.equals(cart2));
+	}
+
+	@Test
 	void addTwoQuantitiesToCart() {
 		var cart = new Cart();
 

@@ -3,14 +3,17 @@ package com.claretcrab.workshop_ddd.domain;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 
 public class Cart {
 
+    UUID id;
     List<Product> products;
-    List<Product> deletedProducts;
+    List<Product> deletedProducts; //Could be a list of Domain Events
 
     public Cart() {
+        id = UUID.randomUUID();
         products = new ArrayList<Product>();
         deletedProducts = new ArrayList<Product>();
     }

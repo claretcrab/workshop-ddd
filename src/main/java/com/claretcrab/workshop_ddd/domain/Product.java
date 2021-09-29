@@ -4,7 +4,7 @@ package com.claretcrab.workshop_ddd.domain;
 public class Product {
 
     String name;
-    Integer quantity; //move to an Item class
+    Integer quantity; // Move to an Item class
 
     public Product(String name, Integer quantity) {
         this.name = name;
