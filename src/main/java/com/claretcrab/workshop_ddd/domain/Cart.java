@@ -8,14 +8,16 @@ import java.util.UUID;
 
 public class Cart {
 
-    UUID id;
-    List<Product> products;
-    List<Product> deletedProducts; //Could be a list of Domain Events
+    private UUID id;
+    private List<Product> products;
+    private List<Product> deletedProducts; //Could be a list of Domain Events
+    private boolean hasCheckOut;
 
     public Cart() {
         id = UUID.randomUUID();
         products = new ArrayList<Product>();
         deletedProducts = new ArrayList<Product>();
+        this.hasCheckOut = false;
     }
 
     public void add(Product product) {
@@ -35,21 +37,26 @@ public class Cart {
         return products.size();
     }
 
+    public Order checkout() {
+        List<Product> orderProducts = new ArrayList<>();
+        for (Product product : products) {
+            for (int i = 0; i < product.getQuantity(); i++) { // Flatten quantity
+                orderProducts.add(new Product(product.getName(), 1, product.getPrice()));
+            }
+        }
+
+        this.hasCheckOut = true;
+
+        return new Order(orderProducts);
+    }
+
     public void removeByName(String name) {
         for (Iterator<Product> iterator = products.iterator(); iterator.hasNext(); ) {
             Product product = iterator.next();
-            if (name.equals(product.name)) {
+            if (name.equals(product.getName())) {
                 iterator.remove();
                 deletedProducts.add(product);
             }
         }
-
-        /*for (Product product : products) {
-            if (name.equals(product.name)) {
-                //products.remove(product);
-                products.remove(product);
-                deletedProducts.add(product);
-            }
-        }*/
     }
 }

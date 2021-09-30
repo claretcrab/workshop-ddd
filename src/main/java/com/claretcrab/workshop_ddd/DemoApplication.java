@@ -1,6 +1,10 @@
 package com.claretcrab.workshop_ddd;
 
+import java.math.BigDecimal;
+
 import com.claretcrab.workshop_ddd.domain.Cart;
+import com.claretcrab.workshop_ddd.domain.Order;
+import com.claretcrab.workshop_ddd.domain.Price;
 import com.claretcrab.workshop_ddd.domain.Product;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,9 +14,11 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		Cart cart = new Cart();
-		Product ipad1 = new Product("Ipad Pro", 1);
-		Product heroInkPen = new Product("Hero Ink Pen", 1);
-		Product ReebokCricketbat = new Product("Reebok Cricket bat", 1);
+		BigDecimal amount = new BigDecimal(12);
+		Price price = new Price(amount);
+		Product ipad1 = new Product("Ipad Pro", 1, price);
+		Product heroInkPen = new Product("Hero Ink Pen", 2, price);
+		Product ReebokCricketbat = new Product("Reebok Cricket bat", 1, price);
 		
 		cart.add(ipad1);
 		cart.add(heroInkPen);
@@ -20,6 +26,9 @@ public class DemoApplication {
 		cart.add(ReebokCricketbat);
 
 		cart.removeByName("Ipad Pro");
+
+		Order order = cart.checkout();
+		System.out.println(order.getProducts());
 	}
 
 }
