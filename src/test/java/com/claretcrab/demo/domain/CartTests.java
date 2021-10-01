@@ -21,7 +21,7 @@ class CartTests {
 		assertTrue(cart.IsEmpty());
 		BigDecimal amount = new BigDecimal(12);
 		Price price = new Price(amount);
-		Product ipad1 = new Product("Ipad Pro", 1, price);
+		Product ipad1 = new Product("Ipad Pro", 1, price, 45);
 		cart.add(ipad1);
 		assertFalse(cart.IsEmpty());
 	}
@@ -35,7 +35,7 @@ class CartTests {
 
 		BigDecimal amount = new BigDecimal(12);
 		Price price = new Price(amount);
-		Product ipad1 = new Product("Ipad Pro", 1, price);
+		Product ipad1 = new Product("Ipad Pro", 1, price, 45);
 		cart.add(ipad1);
 		cart.removeByName("Ipad Pro");
 		assertFalse(cart.deletedProductsIsEmpty());
@@ -48,7 +48,7 @@ class CartTests {
 
 		BigDecimal amount = new BigDecimal(12);
 		Price price = new Price(amount);
-		Product ipad1 = new Product("Ipad Pro", 1, price);
+		Product ipad1 = new Product("Ipad Pro", 1, price, 45);
 
 		cart1.add(ipad1);
 		cart2.add(ipad1);
@@ -62,7 +62,7 @@ class CartTests {
 
 		BigDecimal amount = new BigDecimal(12);
 		Price price = new Price(amount);
-		Product ipad1 = new Product("Ipad Pro", 2, price);
+		Product ipad1 = new Product("Ipad Pro", 2, price, 45);
 
 		cart.add(ipad1);
 		Order order = cart.checkout();
@@ -76,7 +76,7 @@ class CartTests {
 		assertTrue(cart.IsEmpty());
 		BigDecimal amount = new BigDecimal(12);
 		Price price = new Price(amount);
-		Product ipad1 = new Product("Ipad Pro", 2, price);
+		Product ipad1 = new Product("Ipad Pro", 2, price, 45);
 		cart.add(ipad1);
 		assertTrue(2 == cart.getSize());
 	}

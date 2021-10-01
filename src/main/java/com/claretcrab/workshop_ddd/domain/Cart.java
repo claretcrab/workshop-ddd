@@ -41,7 +41,7 @@ public class Cart {
         List<Product> orderProducts = new ArrayList<>();
         for (Product product : products) {
             for (int i = 0; i < product.getQuantity(); i++) { // Flatten quantity
-                orderProducts.add(new Product(product.getName(), 1, product.getPrice()));
+                orderProducts.add(new Product(product.getName(), 1, product.getPrice(), product.getWeight()));
             }
         }
 

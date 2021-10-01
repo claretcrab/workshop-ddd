@@ -6,11 +6,13 @@ public class Product {
     private String name;
     private Integer quantity; // Move to an Item class
     private Price price;
+    private Integer weight;
 
-    public Product(String name, Integer quantity, Price price) {
+    public Product(String name, Integer quantity, Price price, Integer weight) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
+        this.weight = weight;
     }
 
     public String getName() {
@@ -23,6 +25,10 @@ public class Product {
 
     public Integer getQuantity() {
         return quantity;
+    }
+
+    public Integer getWeight() {
+        return weight;
     }
 
 }

@@ -16,9 +16,9 @@ public class DemoApplication {
 		Cart cart = new Cart();
 		BigDecimal amount = new BigDecimal(12);
 		Price price = new Price(amount);
-		Product ipad1 = new Product("Ipad Pro", 1, price);
-		Product heroInkPen = new Product("Hero Ink Pen", 2, price);
-		Product ReebokCricketbat = new Product("Reebok Cricket bat", 1, price);
+		Product ipad1 = new Product("Ipad Pro", 1, price, 45);
+		Product heroInkPen = new Product("Hero Ink Pen", 2, price, 45);
+		Product ReebokCricketbat = new Product("Reebok Cricket bat", 1, price, 55);
 		
 		cart.add(ipad1);
 		cart.add(heroInkPen);
